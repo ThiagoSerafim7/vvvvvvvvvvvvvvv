@@ -1,0 +1,73 @@
+<html>
+<head>
+    <title>Manipulação de Vetor</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Exercícios JavaScript</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index9.html">Página inicial</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <h1>Manipulação de Vetor</h1>
+
+    <form id="form">
+        <label for="valor">Insira um valor:</label>
+        <input type="number" id="valor" step="0.01" required>
+        <button type="button" id="adicionar">Adicionar Valor</button>
+    </form>
+
+    <div id="resultado">
+        <p>Valores Inseridos:</p>
+        <ul id="valoresInseridos"></ul>
+        <p>Maior Valor:</p>
+        <p id="maiorValor"></p>
+        <p>Menor Valor:</p>
+        <p id="menorValor"></p>
+    </div>
+
+    <script>
+        const valores = [];
+
+        document.getElementById("adicionar").addEventListener("click", function() {
+            const valorInserido = parseFloat(document.getElementById("valor").value);
+            valores.push(valorInserido);
+            document.getElementById("valor").value = '';
+
+            exibirValores();
+        });
+
+        function exibirValores() {
+            const valoresInseridosList = document.getElementById("valoresInseridos");
+            valoresInseridosList.innerHTML = "";
+
+            valores.forEach(function(valor) {
+                const li = document.createElement("li");
+                li.textContent = valor;
+                valoresInseridosList.appendChild(li);
+            });
+
+            if (valores.length > 0) {
+                const maior = Math.max(...valores);
+                const menor = Math.min(...valores);
+
+                document.getElementById("maiorValor").textContent = `Maior Valor: ${maior}`;
+                document.getElementById("menorValor").textContent = `Menor Valor: ${menor}`;
+            } else {
+                document.getElementById("maiorValor").textContent = '';
+                document.getElementById("menorValor").textContent = '';
+            }
+        }
+    </script>
+</body>
+</html>

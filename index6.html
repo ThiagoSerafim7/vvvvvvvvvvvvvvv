@@ -1,0 +1,61 @@
+<html>
+<head>
+    <title>Calculadora de Peso Ideal</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Exercícios JavaScript</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index9.html">Página inicial</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <h1>Calculadora de Peso Ideal</h1>
+
+    <form id="form">
+        <label for="altura">Altura (em metros):</label>
+        <input type="number" id="altura" step="0.01" required>
+        
+        <label for="sexo">Sexo:</label>
+        <select id="sexo" required>
+            <option value="masculino">Masculino</option>
+            <option value="feminino">Feminino</option>
+        </select>
+        
+        <button type="submit">Calcular Peso Ideal</button>
+    </form>
+
+    <div id="resultado">
+        <p>Peso Ideal:</p>
+        <p id="pesoIdeal"></p>
+    </div>
+
+    <script>
+        document.getElementById("form").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            const altura = parseFloat(document.getElementById("altura").value);
+            const sexo = document.getElementById("sexo").value;
+            
+            let pesoIdeal = 0;
+
+            if (sexo === "masculino") {
+                pesoIdeal = (72.7 * altura) - 58;
+            } else if (sexo === "feminino") {
+                pesoIdeal = (62.1 * altura) - 44.7;
+            }
+
+            document.getElementById("pesoIdeal").textContent = `Seu peso ideal é de ${pesoIdeal.toFixed(2)} kg.`;
+        });
+    </script>
+</body>
+</html>

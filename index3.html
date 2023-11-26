@@ -1,0 +1,77 @@
+<html>
+<head>
+    <title>Calculadora de Vendas</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+</head>
+<body>
+   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Exercícios JavaScript</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index9.html">Página inicial</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <h1>Calculadora de Vendas</h1>
+
+    <form id="form">
+        <h2>Produto 1</h2>
+        <label for="nome1">Nome do Produto:</label>
+        <input type="text" id="nome1" required>
+        <label for="valor1">Valor do Produto:</label>
+        <input type="number" id="valor1" step="0.01" required>
+        <label for="quantidade1">Quantidade Vendida:</label>
+        <input type="number" id="quantidade1" required>
+
+        <h2>Produto 2</h2>
+        <label for="nome2">Nome do Produto:</label>
+        <input type="text" id="nome2" required>
+        <label for="valor2">Valor do Produto:</label>
+        <input type="number" id="valor2" step="0.01" required>
+        <label for="quantidade2">Quantidade Vendida:</label>
+        <input type="number" id="quantidade2" required>
+
+        <h2>Produto 3</h2>
+        <label for="nome3">Nome do Produto:</label>
+        <input type="text" id="nome3" required>
+        <label for="valor3">Valor do Produto:</label>
+        <input type="number" id="valor3" step="0.01" required>
+        <label for="quantidade3">Quantidade Vendida:</label>
+        <input type="number" id="quantidade3" required>
+
+        <button type="submit">Calcular</button>
+    </form>
+
+    <div id="resultado">
+        <p>Valor Total da Venda:</p>
+        <p id="valorTotal"></p>
+    </div>
+
+    <script>
+        document.getElementById("form").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            const valorProduto1 = parseFloat(document.getElementById("valor1").value);
+            const quantidadeProduto1 = parseInt(document.getElementById("quantidade1").value);
+
+            const valorProduto2 = parseFloat(document.getElementById("valor2").value);
+            const quantidadeProduto2 = parseInt(document.getElementById("quantidade2").value);
+
+            const valorProduto3 = parseFloat(document.getElementById("valor3").value);
+            const quantidadeProduto3 = parseInt(document.getElementById("quantidade3").value);
+
+            const totalVenda = (valorProduto1 * quantidadeProduto1) + (valorProduto2 * quantidadeProduto2) + (valorProduto3 * quantidadeProduto3);
+
+            document.getElementById("valorTotal").textContent = `O valor total da venda é R$ ${totalVenda.toFixed(2)}`;
+        });
+    </script>
+</body>
+</html>
+

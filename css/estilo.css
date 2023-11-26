@@ -1,0 +1,30 @@
+.navbar {
+    background-color: #343a40;
+    border-bottom: 3px solid #007BFF;
+}
+
+.navbar-brand {
+    color: #007BFF;
+    font-weight: bold;
+}
+
+.navbar a {
+    color: #fff;
+}
+
+.navbar-toggler-icon {
+    background-color: #fff;
+}
+
+.container {
+    margin-top: 20px;
+}
+
+h1 {
+    font-size: 24px;
+    color: #007BFF;
+}
+
+p {
+    font-size: 16px;
+}
